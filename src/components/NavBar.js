@@ -5,7 +5,6 @@ import { NaverContext } from '../contexts/NaverContext';
 const NavBar = () => {
     const { user, logout } = useContext(AuthContext);
     const { navers } = useContext(NaverContext);
-    console.log('naversa', navers)
     return (
         <div className="navbar">
             <button onClick={logout} className="sair">Sair</button>

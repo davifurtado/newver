@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { NaverContext } from '../contexts/NaverContext';
+import NaverDetails from './NaverDetails';
 
 const NaversList = () => {
     const { navers } = useContext(NaverContext);
@@ -7,7 +8,11 @@ const NaversList = () => {
         <div>
             <div className="">
                 <ul>
-                    teste
+                    {
+                        navers.map((naver) => {
+                            return ( <NaverDetails naver={naver} key={naver.id} />)
+                        })
+                    }
                 </ul>
             </div>
         </div>

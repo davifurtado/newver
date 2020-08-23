@@ -3,6 +3,7 @@ import { AuthContext } from '../contexts/AuthContext';
 import UserForm from '../components/UserForm';
 import NavBar from '../components/NavBar';
 import NaverContextProvider from '../contexts/NaverContext';
+import NaversList from '../components/NaversList';
 
 const RootContainer = () => {
     const { user } = useContext(AuthContext);
@@ -10,6 +11,7 @@ const RootContainer = () => {
         <div>
             <NaverContextProvider>
                 <NavBar />
+                <NaversList />
             </NaverContextProvider>
         </div>
     ) : (
