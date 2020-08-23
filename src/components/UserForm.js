@@ -34,7 +34,7 @@ const UserForm = () => {
                 minLength={6}
             />
             <div>
-                <button type="submit" label="Fazer Login"/>
+                <button type="submit">Fazer Login</button>
             </div>
         </form>
     );
