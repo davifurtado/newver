@@ -8,6 +8,7 @@ const NaverContextProvider = (props) => {
     const { user } = useContext(AuthContext);
     const [navers, setNavers] = useState([]);
 
+    // const token = `Bearer ${user[0].token}`
     const getNavers = useCallback(() => {
         const getNavers = {
             method: 'get',
@@ -25,6 +26,35 @@ const NaverContextProvider = (props) => {
                 console.log(error);
             });
     }, [user]);
+
+    const createNaver = (naver) => {
+        const data = JSON.stringify({
+            "name": naver.name,
+            "birthdate": naver.birthdate,
+            "admission_date": naver.admission_date,
+            "job_role": naver.jobRole,
+            "project": naver.project,
+            "url": naver.url
+        });
+
+        const create = {
+            method: 'post',
+            url: 'https://navedex-api.herokuapp.com/v1/navers',
+            headers: { 
+                'Authorization': `Bearer ${user[0].token}`,
+                'Content-Type': 'application/json'
+            },
+            data : data
+        };
+
+        axios(create)
+            .then(function (response) {
+            console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+            console.log(error);
+            });
+    }
 
     useEffect(() => {
         getNavers()
