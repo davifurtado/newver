@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 
-// O código foi convertido para componentes do primeReact
-
 const UserForm = () => {
     const { handleLogin } = useContext(AuthContext)
     const [email, setEmail] = useState('');

@@ -8,7 +8,6 @@ const AuthContextProvider = (props) => {
     const [user, setUser] = useState([]);
     const handleLogin = (email, password) => {
         const data = JSON.stringify({"email":`${email}`,"password":`${password}`});
-        
         const apiLogin = {
           method: 'post',
           url: 'https://navedex-api.herokuapp.com/v1/users/login',
