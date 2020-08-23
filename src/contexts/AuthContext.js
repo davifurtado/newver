@@ -27,9 +27,9 @@ const AuthContextProvider = (props) => {
           console.log(error);
         });
     }
-    /*const logout = () => {
+    const logout = () => {
         setUser([])
-    }*/
+    }
     return (
         <AuthContext.Provider value={{ user, handleLogin }}>
             { props.children }

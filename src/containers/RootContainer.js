@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import UserForm from '../components/UserForm';
+import NavBar from '../components/NavBar';
 
 const RootContainer = () => {
     const { user } = useContext(AuthContext);
     return user.length ? (
         <div>
-            Você está logado !
+            <NavBar />
         </div>
     ) : (
         <div className="root-container">
