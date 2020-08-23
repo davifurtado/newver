@@ -9,7 +9,7 @@ const AuthContextProvider = (props) => {
     const handleLogin = (email, password) => {
         const data = JSON.stringify({"email":`${email}`,"password":`${password}`});
         
-        const config = {
+        const apiLogin = {
           method: 'post',
           url: 'https://navedex-api.herokuapp.com/v1/users/login',
           headers: { 
@@ -18,7 +18,7 @@ const AuthContextProvider = (props) => {
           data : data
         };
         
-        axios(config)
+        axios(apiLogin)
         .then((response) => {
           setUser([{ user: response.data.email, token: response.data.token, id: response.data.id }])
         })
