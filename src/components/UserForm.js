@@ -21,7 +21,7 @@ const UserForm = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                maxLength={9}
+                maxLength={48}
             />
             <input
                 type="password"
@@ -30,7 +30,7 @@ const UserForm = () => {
                 value={password}
                 required
                 onChange={(e) => setPassword(e.target.value)}
-                maxLength={9}
+                maxLength={48}
                 minLength={6}
             />
             <div>

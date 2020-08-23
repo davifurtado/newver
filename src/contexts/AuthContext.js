@@ -1,11 +1,11 @@
-import React, { createContext/*, useState, useEffect*/ } from 'react';
+import React, { createContext, useState } from 'react';
 import axios from 'axios'
 
 export const AuthContext = createContext();
 
 // O sistema de login pode ser feito através do context para englobar a aplicação inteira sem precisar de redux. 
 const AuthContextProvider = (props) => {
-    let user = []
+    const [user, setUser] = useState([]);
     const handleLogin = (email, password) => {
         const data = JSON.stringify({"email":`${email}`,"password":`${password}`});
         
@@ -20,8 +20,8 @@ const AuthContextProvider = (props) => {
         
         axios(config)
         .then((response) => {
-          console.log(JSON.stringify(response.data));
-          // setUser([{ user, password, id: 1 }])
+          console.log(response.data);
+          setUser([{ user: response.data.email, token: response.data.token, id: response.data.id }])
         })
         .catch((error) => {
           console.log(error);
