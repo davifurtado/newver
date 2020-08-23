@@ -19,11 +19,11 @@ const NaverContextProvider = (props) => {
         };
         axios(getNavers)
             .then((response) => {
-                console.log(response);
+                
                 setNavers(response.data)
             })
             .catch((error) => {
-                console.log(error);
+                
             });
     }, [user]);
 
@@ -32,7 +32,7 @@ const NaverContextProvider = (props) => {
             "name": naver.name,
             "birthdate": naver.birthdate,
             "admission_date": naver.admission_date,
-            "job_role": naver.jobRole,
+            "job_role": naver.job_role,
             "project": naver.project,
             "url": naver.url
         });
@@ -48,10 +48,10 @@ const NaverContextProvider = (props) => {
         axios(create)
             .then((response) => {
                 getNavers();
-                console.log(response.data);
+                alert('Sucesso!')
             })
             .catch((error) => {
-                console.log(error);
+                alert(error)
             });
     }
 
@@ -67,10 +67,10 @@ const NaverContextProvider = (props) => {
         axios(config)
             .then((response) => {
                 getNavers();
-                console.log(response.data);
+                
             })
             .catch((error) => {
-                console.log(error);
+                
             });
     }
 
@@ -97,10 +97,10 @@ const NaverContextProvider = (props) => {
         axios(config)
             .then((response) => {
                 getNavers();
-                console.log(JSON.stringify(response.data));
+                
             })
             .catch((error) => {
-                console.log(error);
+                
             });
 
     }
