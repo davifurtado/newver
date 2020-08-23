@@ -20,18 +20,17 @@ const AuthContextProvider = (props) => {
         
         axios(config)
         .then((response) => {
-          console.log(response.data);
           setUser([{ user: response.data.email, token: response.data.token, id: response.data.id }])
         })
         .catch((error) => {
-          console.log(error);
+          alert(error);
         });
     }
     const logout = () => {
         setUser([])
     }
     return (
-        <AuthContext.Provider value={{ user, handleLogin }}>
+        <AuthContext.Provider value={{ user, handleLogin, logout }}>
             { props.children }
         </AuthContext.Provider>
     );
