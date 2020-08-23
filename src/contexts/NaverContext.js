@@ -36,7 +36,6 @@ const NaverContextProvider = (props) => {
             "project": naver.project,
             "url": naver.url
         });
-
         const create = {
             method: 'post',
             url: 'https://navedex-api.herokuapp.com/v1/navers',
@@ -46,19 +45,39 @@ const NaverContextProvider = (props) => {
             },
             data : data
         };
-
         axios(create)
-            .then(function (response) {
-            console.log(JSON.stringify(response.data));
+            .then((response) => {
+                getNavers();
+                console.log(response.data);
             })
-            .catch(function (error) {
-            console.log(error);
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    deleteNaver = (id) => {
+        const config = {
+          method: 'delete',
+          url: `https://navedex-api.herokuapp.com/v1/navers/${id}`,
+          headers: { 
+            'Authorization': `Bearer ${user[0].token}`,
+          }
+        };
+        
+        axios(config)
+            .then((response) => {
+                getNavers();
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
             });
     }
 
     useEffect(() => {
         getNavers()
     }, [getNavers])
+    
     return (
         <NaverContext.Provider value={{ navers, getNavers }}>
             { props.children }
