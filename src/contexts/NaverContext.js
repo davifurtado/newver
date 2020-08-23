@@ -74,10 +74,40 @@ const NaverContextProvider = (props) => {
             });
     }
 
+    updateNaver = (naver) => {
+        const data = JSON.stringify({
+            "name": naver.name,
+            "birthdate": naver.birthdate,
+            "admission_date": naver.admission_date,
+            "job_role": naver.jobRole,
+            "project": naver.project,
+            "url": naver.url
+        });
+
+        const config = {
+        method: 'put',
+        url: `https://navedex-api.herokuapp.com/v1/navers/${naver.id}`,
+        headers: { 
+            'Authorization': `Bearer ${user[0].token}`,
+            'Content-Type': 'application/json'
+        },
+        data : data
+        };
+
+        axios(config)
+            .then((response) => {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
+
     useEffect(() => {
         getNavers()
     }, [getNavers])
-    
+
     return (
         <NaverContext.Provider value={{ navers, getNavers }}>
             { props.children }
