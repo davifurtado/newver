@@ -1,10 +1,13 @@
 import React from 'react';
-import './App.css';
+import AuthContextProvider from './contexts/AuthContext';
+import RootContainer from './containers/RootContainer';
 
 function App() {
   return (
     <div className="App">
-      hell o world
+      <AuthContextProvider>
+        <RootContainer />
+      </AuthContextProvider>
     </div>
   );
 }
