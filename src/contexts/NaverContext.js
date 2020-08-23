@@ -96,6 +96,7 @@ const NaverContextProvider = (props) => {
 
         axios(config)
             .then((response) => {
+                getNavers();
                 console.log(JSON.stringify(response.data));
             })
             .catch((error) => {
@@ -109,7 +110,7 @@ const NaverContextProvider = (props) => {
     }, [getNavers])
 
     return (
-        <NaverContext.Provider value={{ navers, getNavers }}>
+        <NaverContext.Provider value={{ navers, getNavers, createNaver, deleteNaver, updateNaver }}>
             { props.children }
         </NaverContext.Provider>
     );
