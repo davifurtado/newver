@@ -55,7 +55,7 @@ const NaverContextProvider = (props) => {
             });
     }
 
-    deleteNaver = (id) => {
+    const deleteNaver = (id) => {
         const config = {
           method: 'delete',
           url: `https://navedex-api.herokuapp.com/v1/navers/${id}`,
@@ -74,7 +74,7 @@ const NaverContextProvider = (props) => {
             });
     }
 
-    updateNaver = (naver) => {
+    const updateNaver = (naver) => {
         const data = JSON.stringify({
             "name": naver.name,
             "birthdate": naver.birthdate,
