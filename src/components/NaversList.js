@@ -1,13 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NaverContext } from '../contexts/NaverContext';
 import NaverDetails from './NaverDetails';
 import NaverForm from './NaverForm';
+import Modal from 'react-bootstrap/Modal';
 
 const NaversList = () => {
     const { navers } = useContext(NaverContext);
+    const [showModal, setShowModal] = useState(false);
+
+    console.log('showModal', showModal);
+            
     return navers.length ? (
         <div>
-            <button>Cadastrar Naver</button>
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Cadastro</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <NaverForm />
+                </Modal.Body>
+            </Modal>
+            <button onClick={() => setShowModal(true)}>Cadastrar Naver</button>
             <div className="">
                 <ul>
                     {
@@ -20,9 +33,16 @@ const NaversList = () => {
         </div>
     ) : (
         <div className="empty">
-            <NaverForm />
+            <Modal show={showModal} onHide={() => setShowModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Cadastro</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <NaverForm />
+                </Modal.Body>
+            </Modal>
             Nenhum Naver cadastrado
-            <button>Cadastrar Naver</button>
+            <button onClick={() => setShowModal(true)}>Cadastrar Naver</button>
         </div>
     )
 }
