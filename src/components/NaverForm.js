@@ -7,8 +7,8 @@ const NaverForm = ({ naver }) => {
         e.preventDefault();
         createNaver({
             name: e.target.name.value,
-            birthdate: `${e.target.birthdate.value.replace('-','/')} 00:00:00`,
-            admission_date: `${e.target.admission_date.value.replace('-','/')} 00:00:00`,
+            birthdate:`${e.target.birthdate.value.replaceAll('-','/')} 00:00:00`,
+            admission_date: `${e.target.admission_date.value.replaceAll('-','/')} 00:00:00`,
             job_role: e.target.job_role.value,
             project: e.target.project.value,
             url: e.target.url.value
@@ -52,7 +52,7 @@ const NaverForm = ({ naver }) => {
             </div>
             <div>
                 <label>Data Admissão: </label>
-                <input type="date" name="admission_date"/>
+                <input type="date" name="admission_date" placeholder="yyyy-mm-dd"/>
             </div>
             <div>
                 <label>Cargo: </label>
@@ -64,7 +64,7 @@ const NaverForm = ({ naver }) => {
             </div>
             <div>
                 <label>Aniversário: </label>
-                <input type="date" name="birthdate"/>
+                <input type="date" name="birthdate" placeholder="yyyy-mm-dd"/>
             </div>
             <div>
                 <label>URL: </label>
