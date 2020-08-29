@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NaverContext } from '../contexts/NaverContext';
 
 const NaverForm = ({ naver }) => {
     const { createNaver, updateNaver } = useContext(NaverContext)
+    const [imageLoadError, setImageLoadError] = useState(true)
     const handleOnSubmitCreate = (e) => {
         e.preventDefault();
         createNaver({
@@ -22,39 +23,56 @@ const NaverForm = ({ naver }) => {
             admission_date: `${e.target.admission_date.value.replaceAll('-','/')} 00:00:00`,
             job_role: e.target.job_role.value,
             project: e.target.project.value,
-            url: e.target.url.value
+            url: e.target.url.value,
+            id: naver.id
         })
     }
     return naver ? (
-        <form onSubmit={handleOnSubmitEdit}>
+        <div style={{ display: 'flex' }}>
+            <div style={{ flex: 3 }}>
+                <img
+                    src={naver.url}
+                    alt="naver"
+                    onError={e => { 
+                        if(imageLoadError) { 
+                            setImageLoadError(false)
+                            e.target.src = 'https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                        }
+                    }}
+                    width="100%"
+                    height="100%"
+                />
+                </div>
+        <form onSubmit={handleOnSubmitEdit} style={{ flex: 2 }}>
             <div>
                 <label>Nome:</label>
-                <input required minLength={3} value={naver.name} />
+                <input required name="name" minLength={3} defaultValue={naver.name} />
             </div>
             <div>
                 <label>Data Admissão: </label>
-                <input required  value={ naver.admission_date }/>
+                <input required  type="date" name="admission_date" defaultValue={ naver.admission_date }/>
             </div>
             <div>
                 <label>Cargo: </label>
-                <input required minLength={3} value={ naver.job_role } />
+                <input required minLength={3} name="job_role" defaultValue={ naver.job_role } />
             </div>
             <div>
                 <label>Projeto: </label>
-                <input required  value={ naver.project } />
+                <input required name="project" defaultValue={ naver.project } />
             </div>
             <div>
                 <label>Aniversário: </label>
-                <input required  value={ naver.birthdate }/>
+                <input required type="date" name="birthdate" defaultValue={ naver.birthdate }/>
             </div>
             <div>
                 <label >URL: </label>
-                <input required minLength={5} name="url"/>
+                <input required minLength={5} name="url" defaultValue={naver.url}/>
             </div>
             <div>
                 <button type="submit">Gravar</button>
             </div>
         </form>
+        </div>
     ) : (
         <form onSubmit={handleOnSubmitCreate}>
             <div>

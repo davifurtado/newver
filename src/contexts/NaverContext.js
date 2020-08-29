@@ -79,7 +79,7 @@ const NaverContextProvider = (props) => {
             "name": naver.name,
             "birthdate": naver.birthdate,
             "admission_date": naver.admission_date,
-            "job_role": naver.jobRole,
+            "job_role": naver.job_role,
             "project": naver.project,
             "url": naver.url
         });
@@ -97,10 +97,10 @@ const NaverContextProvider = (props) => {
         axios(config)
             .then((response) => {
                 getNavers();
-                
+                alert('Sucesso!')
             })
             .catch((error) => {
-                
+                alert(error)
             });
 
     }

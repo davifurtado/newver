@@ -9,7 +9,7 @@ const NaverDetails = ({ naver }) => {
     const [imageLoadError, setImageLoadError] = useState(true)
     const { deleteNaver } = useContext(NaverContext)
     return (
-        <div>
+        <div style={{ minWidth: '30%' }}>
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Cadastro</Modal.Title>
@@ -21,11 +21,12 @@ const NaverDetails = ({ naver }) => {
             <div 
                 style={{ 
                     display: 'flex',
-                    border: '1px solid',
-                    maxWidth: '45%'
+                    border: '2px solid',
+                    height: '30vh',
+                    marginRight: '5px'
                 }}
             >
-                <div style={{ flex: 1 }}>
+                <div style={{ flex: 3 }}>
                     <img
                         src={naver.url}
                         alt="naver"
@@ -40,7 +41,7 @@ const NaverDetails = ({ naver }) => {
                         height="100%"
                     />
                 </div>
-                <div style={{ flex: 1 }}>
+                <div style={{ flex: 2 }}>
                     <div >Nome: { naver.name }</div>
                     <div >Data Admissão: { moment(naver.admission_date,'YYYY-MM-DD').format('DD/MM/YYYY') }</div>
                     <div >Cargo: { naver.job_role }</div>

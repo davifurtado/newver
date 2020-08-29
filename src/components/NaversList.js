@@ -21,14 +21,21 @@ const NaversList = () => {
                 </Modal.Body>
             </Modal>
             <button onClick={() => setShowModal(true)}>Cadastrar Naver</button>
-            <div className="">
-                <ul>
+            <div>
+                <div 
+                    style={{ 
+                        display: 'flex',
+                        overflow: 'auto',
+                        width: '100%',
+                        padding: '10px'
+                    }}
+                >
                     {
                         navers.map((naver) => {
                             return ( <NaverDetails naver={naver} key={naver.id} />)
                         })
                     }
-                </ul>
+                </div>
             </div>
         </div>
     ) : (
