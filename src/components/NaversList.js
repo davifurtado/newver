@@ -20,7 +20,7 @@ const NaversList = () => {
                     <NaverForm />
                 </Modal.Body>
             </Modal>
-            <button onClick={() => setShowModal(true)}>Cadastrar Naver</button>
+            <button onClick={() => setShowModal(true)} style={{ backgroundColor: '#555555', color: 'white' }}>Cadastrar Naver</button>
             <div>
                 <div 
                     style={{ 
@@ -39,7 +39,7 @@ const NaversList = () => {
             </div>
         </div>
     ) : (
-        <div className="empty">
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Modal show={showModal} onHide={() => setShowModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Cadastro</Modal.Title>
@@ -49,7 +49,9 @@ const NaversList = () => {
                 </Modal.Body>
             </Modal>
             Nenhum Naver cadastrado
-            <button onClick={() => setShowModal(true)}>Cadastrar Naver</button>
+            <div>
+                <button onClick={() => setShowModal(true)} style={{ backgroundColor: '#555555', color: 'white' }}>Cadastrar Naver</button>
+            </div>
         </div>
     )
 }

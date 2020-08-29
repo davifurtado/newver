@@ -69,7 +69,7 @@ const NaverForm = ({ naver }) => {
                 <input required minLength={5} name="url" defaultValue={naver.url}/>
             </div>
             <div>
-                <button type="submit">Gravar</button>
+                <button type="submit" style={{ backgroundColor: '#555555', color: 'white' }}>Gravar</button>
             </div>
         </form>
         </div>
@@ -100,7 +100,7 @@ const NaverForm = ({ naver }) => {
                 <input required minLength={5} name="url"/>
             </div>
             <div>
-                <button type="submit">Cadastrar</button>
+                <button type="submit" style={{ backgroundColor: '#555555', color: 'white' }}>Cadastrar</button>
             </div>
         </form>
     )

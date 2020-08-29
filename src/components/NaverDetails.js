@@ -10,7 +10,7 @@ const NaverDetails = ({ naver }) => {
     const { deleteNaver } = useContext(NaverContext)
     return (
         <div style={{ minWidth: '30%' }}>
-            <Modal show={showModal} onHide={() => setShowModal(false)}>
+            <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Cadastro</Modal.Title>
                 </Modal.Header>

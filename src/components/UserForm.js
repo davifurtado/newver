@@ -32,7 +32,7 @@ const UserForm = () => {
                 minLength={6}
             />
             <div>
-                <button type="submit">Fazer Login</button>
+                <button type="submit" style={{ backgroundColor: '#555555', color: 'white' }}>Fazer Login</button>
             </div>
         </form>
     );
