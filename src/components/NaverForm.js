@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { NaverContext } from '../contexts/NaverContext';
 
 const NaverForm = ({ naver }) => {
-    const { createNaver } = useContext(NaverContext)
-    const handleOnSubmit = (e) => {
+    const { createNaver, updateNaver } = useContext(NaverContext)
+    const handleOnSubmitCreate = (e) => {
         e.preventDefault();
         createNaver({
             name: e.target.name.value,
@@ -14,8 +14,19 @@ const NaverForm = ({ naver }) => {
             url: e.target.url.value
         })
     }
+    const handleOnSubmitEdit = (e) => {
+        e.preventDefault();
+        updateNaver({
+            name: e.target.name.value,
+            birthdate:`${e.target.birthdate.value.replaceAll('-','/')} 00:00:00`,
+            admission_date: `${e.target.admission_date.value.replaceAll('-','/')} 00:00:00`,
+            job_role: e.target.job_role.value,
+            project: e.target.project.value,
+            url: e.target.url.value
+        })
+    }
     return naver ? (
-        <form>
+        <form onSubmit={handleOnSubmitEdit}>
             <div>
                 <label>Nome:</label>
                 <input required minLength={3} value={naver.name} />
@@ -45,7 +56,7 @@ const NaverForm = ({ naver }) => {
             </div>
         </form>
     ) : (
-        <form onSubmit={handleOnSubmit}>
+        <form onSubmit={handleOnSubmitCreate}>
             <div>
                 <label>Nome:</label>
                 <input required minLength={3} name="name"/>
