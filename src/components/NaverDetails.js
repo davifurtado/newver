@@ -3,13 +3,14 @@ import { NaverContext } from '../contexts/NaverContext';
 import moment from 'moment';
 import Modal from 'react-bootstrap/Modal';
 import NaverForm from './NaverForm';
+import { TrashFill, PencilSquare } from 'react-bootstrap-icons';
 
 const NaverDetails = ({ naver }) => {
     const [showModal, setShowModal] = useState(false);
     const [imageLoadError, setImageLoadError] = useState(true)
     const { deleteNaver } = useContext(NaverContext)
     return (
-        <div style={{ minWidth: '30%' }}>
+        <div style={{ minWidth: '40%' }}>
             <Modal show={showModal} onHide={() => setShowModal(false)} size="lg">
                 <Modal.Header closeButton>
                     <Modal.Title>Cadastro</Modal.Title>
@@ -22,7 +23,7 @@ const NaverDetails = ({ naver }) => {
                 style={{ 
                     display: 'flex',
                     border: '2px solid',
-                    height: '30vh',
+                    height: '40vh',
                     marginRight: '5px'
                 }}
             >
@@ -47,8 +48,10 @@ const NaverDetails = ({ naver }) => {
                     <div >Cargo: { naver.job_role }</div>
                     <div >Projeto: { naver.project }</div>
                     <div >Aniversário: { moment(naver.birthdate,'YYYY-MM-DD').format('DD/MM/YYYY') }</div>
-                    <div style={{ cursor: 'pointer' }} onClick={() => deleteNaver(naver.id)}>X</div>
-                    <div style={{ cursor: 'pointer' }} onClick={() => setShowModal(true)}>Editar</div>
+                    <div style={{ display: 'flex' }}>
+                        <div style={{ cursor: 'pointer', marginRight: '10px' }} onClick={() => deleteNaver(naver.id)}><TrashFill size={25}/></div>
+                        <div style={{ cursor: 'pointer' }} onClick={() => setShowModal(true)}><PencilSquare size={25}/></div>
+                    </div>
                 </div>
             </div>
         </div>
