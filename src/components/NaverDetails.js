@@ -41,7 +41,7 @@ const NaverDetails = ({ naver }) => {
                         height="100%"
                     />
                 </div>
-                <div style={{ flex: 2 }}>
+                <div style={{ flex: 2, overflow: 'auto' }}>
                     <div >Nome: { naver.name }</div>
                     <div >Data Admissão: { moment(naver.admission_date,'YYYY-MM-DD').format('DD/MM/YYYY') }</div>
                     <div >Cargo: { naver.job_role }</div>

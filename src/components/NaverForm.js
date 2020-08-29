@@ -43,10 +43,10 @@ const NaverForm = ({ naver }) => {
                     height="100%"
                 />
                 </div>
-        <form onSubmit={handleOnSubmitEdit} style={{ flex: 2 }}>
+        <form onSubmit={handleOnSubmitEdit} style={{ flex: 2, overFlow: 'auto' }}>
             <div>
                 <label>Nome:</label>
-                <input required name="name" minLength={3} defaultValue={naver.name} />
+                <input required name="name" minLength={3} maxLength={48} defaultValue={naver.name} />
             </div>
             <div>
                 <label>Data Admissão: </label>
@@ -54,11 +54,11 @@ const NaverForm = ({ naver }) => {
             </div>
             <div>
                 <label>Cargo: </label>
-                <input required minLength={3} name="job_role" defaultValue={ naver.job_role } />
+                <input required minLength={3} maxLength={48} name="job_role" defaultValue={ naver.job_role } />
             </div>
             <div>
                 <label>Projeto: </label>
-                <input required name="project" defaultValue={ naver.project } />
+                <input required name="project" maxLength={48} defaultValue={ naver.project } />
             </div>
             <div>
                 <label>Aniversário: </label>
@@ -74,7 +74,7 @@ const NaverForm = ({ naver }) => {
         </form>
         </div>
     ) : (
-        <form onSubmit={handleOnSubmitCreate}>
+        <form onSubmit={handleOnSubmitCreate} style={{ overFlow: 'auto' }}>
             <div>
                 <label>Nome:</label>
                 <input required minLength={3} name="name"/>
