@@ -36,7 +36,7 @@ const NaverForm = ({ naver }) => {
                     onError={e => { 
                         if(imageLoadError) { 
                             setImageLoadError(false)
-                            e.target.src = 'https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                            e.target.src = 'https://images.pexels.com/photos/3697676/pexels-photo-3697676.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
                         }
                     }}
                     width="100%"
@@ -50,7 +50,7 @@ const NaverForm = ({ naver }) => {
             </div>
             <div>
                 <label>Data Admissão: </label>
-                <input required  type="date" name="admission_date" defaultValue={ naver.admission_date }/>
+                <input required  type="date" name="admission_date" defaultValue={naver.admission_date.substring(0,10)} />
             </div>
             <div>
                 <label>Cargo: </label>
@@ -62,7 +62,7 @@ const NaverForm = ({ naver }) => {
             </div>
             <div>
                 <label>Aniversário: </label>
-                <input required type="date" name="birthdate" defaultValue={ naver.birthdate }/>
+                <input required type="date" name="birthdate" defaultValue={ naver.birthdate.substring(0,10) } onChange={(e) => console.log(e.target.value)}/>
             </div>
             <div>
                 <label >URL: </label>
@@ -93,7 +93,7 @@ const NaverForm = ({ naver }) => {
             </div>
             <div>
                 <label>Aniversário: </label>
-                <input type="date" name="birthdate" placeholder="yyyy-mm-dd"/>
+                <input type="date" name="birthdate" placeholder="yyyy-mm-dd" onChange={(e) => console.log(e.target.value)}/>
             </div>
             <div>
                 <label>URL: </label>

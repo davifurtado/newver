@@ -7,8 +7,6 @@ import Modal from 'react-bootstrap/Modal';
 const NaversList = () => {
     const { navers } = useContext(NaverContext);
     const [showModal, setShowModal] = useState(false);
-
-    console.log('showModal', showModal);
             
     return navers.length ? (
         <div>

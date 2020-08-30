@@ -34,6 +34,7 @@ const UserForm = () => {
             <div>
                 <button type="submit" style={{ backgroundColor: '#555555', color: 'white' }}>Fazer Login</button>
             </div>
+            <label style={{ fontSize: '12px' }}>(para fins de testes utilize: "newver@teste.com" com a senha "testes")</label>
         </form>
     );
 }
