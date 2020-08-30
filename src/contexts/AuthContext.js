@@ -22,7 +22,7 @@ const AuthContextProvider = (props) => {
           setUser([{ user: response.data.email, token: response.data.token, id: response.data.id }])
         })
         .catch((error) => {
-          alert(error);
+          alert("Ops! Usuário não encontrado! Tente novamente");
         });
     }
     const logout = () => {

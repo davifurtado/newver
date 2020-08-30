@@ -42,7 +42,7 @@ const RootContainer = () => {
                     backgroundColor: '#f5f6f7'
                 }}
             >
-                <h1>Faça Login para prosseguir</h1>
+                <h1>NAVER</h1>
                 <UserForm />
             </div>
         </div>

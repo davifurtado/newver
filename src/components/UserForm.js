@@ -15,7 +15,7 @@ const UserForm = () => {
         <form className="user-form" onSubmit={handleOnSubmit}>
             <input
                 placeholder="Email..."
-                //className=""
+                style={{ margin: '5px' }}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -24,7 +24,7 @@ const UserForm = () => {
             <input
                 type="password"
                 placeholder="Senha..."
-                //className=""
+                style={{ margin: '5px' }}
                 value={password}
                 required
                 onChange={(e) => setPassword(e.target.value)}
