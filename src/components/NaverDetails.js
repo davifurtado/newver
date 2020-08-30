@@ -35,7 +35,7 @@ const NaverDetails = ({ naver }) => {
                         onError={e => { 
                             if(imageLoadError) { 
                                 setImageLoadError(false)
-                                e.target.src = 'https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+                                e.target.src = 'https://images.pexels.com/photos/3697676/pexels-photo-3697676.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
                             }
                         }}
                         width="100%"
@@ -49,7 +49,7 @@ const NaverDetails = ({ naver }) => {
                     <div >Projeto: { naver.project }</div>
                     <div >Aniversário: { moment(naver.birthdate,'YYYY-MM-DD').format('DD/MM/YYYY') }</div>
                     <div style={{ display: 'flex' }}>
-                        <div style={{ cursor: 'pointer', marginRight: '10px' }} onClick={() => deleteNaver(naver.id)}><TrashFill size={25}/></div>
+                        <div style={{ cursor: 'pointer', marginRight: '10px' }} onClick={() => { if (window.confirm("Deletar Naver?")) deleteNaver(naver.id) }} ><TrashFill size={25}/></div>
                         <div style={{ cursor: 'pointer' }} onClick={() => setShowModal(true)}><PencilSquare size={25}/></div>
                     </div>
                 </div>

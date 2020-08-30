@@ -19,11 +19,10 @@ const NaverContextProvider = (props) => {
         };
         axios(getNavers)
             .then((response) => {
-                
                 setNavers(response.data)
             })
             .catch((error) => {
-                
+                alert(error)
             });
     }, [user]);
 
@@ -46,9 +45,9 @@ const NaverContextProvider = (props) => {
             data : data
         };
         axios(create)
-            .then((response) => {
+            .then(() => {
                 getNavers();
-                alert('Sucesso!')
+                alert('Naver Cadastrado com Sucesso!')
             })
             .catch((error) => {
                 alert(error)
@@ -63,14 +62,12 @@ const NaverContextProvider = (props) => {
             'Authorization': `Bearer ${user[0].token}`,
           }
         };
-        
         axios(config)
-            .then((response) => {
+            .then(() => {
                 getNavers();
-                
             })
             .catch((error) => {
-                
+                alert(error)
             });
     }
 
@@ -95,9 +92,9 @@ const NaverContextProvider = (props) => {
         };
 
         axios(config)
-            .then((response) => {
+            .then(() => {
                 getNavers();
-                alert('Sucesso!')
+                alert('Naver Atualizado com sucesso!')
             })
             .catch((error) => {
                 alert(error)
